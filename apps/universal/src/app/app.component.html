@@ -1,0 +1,22 @@
+<div class="app">
+  <h1>Universal</h1>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non suscipit urna, eu mattis turpis. Pellentesque libero
+    dui, egestas et eros in, luctus gravida tellus. Nullam et mattis nisi, eget convallis diam. Sed vehicula aliquam
+    sollicitudin. Fusce porttitor ligula risus, eu cursus erat suscipit nec. Nulla facilisi. Vivamus eget rhoncus nunc.
+    Donec interdum malesuada enim, non laoreet dui pharetra at. Quisque lacinia arcu dapibus magna dapibus convallis.
+    Etiam euismod neque at urna interdum, id congue orci volutpat.
+  </p>
+
+  <ul class="app__nav" role="menu">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['']">Home</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['news']">News</a>
+    </li>
+  </ul>
+
+  <router-outlet></router-outlet>
+</div>

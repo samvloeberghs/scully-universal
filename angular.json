@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "projects": {
+    "scully": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/scully",
+      "sourceRoot": "apps/scully/src",
+      "prefix": "su",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/scully",
+            "index": "apps/scully/src/index.html",
+            "main": "apps/scully/src/main.ts",
+            "polyfills": "apps/scully/src/polyfills.ts",
+            "tsConfig": "apps/scully/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/scully/src/favicon.ico",
+              "apps/scully/src/assets"
+            ],
+            "styles": ["apps/scully/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/scully/src/environments/environment.ts",
+                  "with": "apps/scully/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "scully:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "scully:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "scully:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/scully/tsconfig.app.json",
+              "apps/scully/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/scully/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/scully/jest.config.js",
+            "tsConfig": "apps/scully/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/scully/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "scully-e2e": {
+      "root": "apps/scully-e2e",
+      "sourceRoot": "apps/scully-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/scully-e2e/cypress.json",
+            "tsConfig": "apps/scully-e2e/tsconfig.e2e.json",
+            "devServerTarget": "scully:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "scully:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/scully-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/scully-e2e/**"]
+          }
+        }
+      }
+    },
+    "universal": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/universal",
+      "sourceRoot": "apps/universal/src",
+      "prefix": "su",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/universal/browser",
+            "index": "apps/universal/src/index.html",
+            "main": "apps/universal/src/main.ts",
+            "polyfills": "apps/universal/src/polyfills.ts",
+            "tsConfig": "apps/universal/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/universal/src/favicon.ico",
+              "apps/universal/src/assets"
+            ],
+            "styles": ["apps/universal/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/universal/src/environments/environment.ts",
+                  "with": "apps/universal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "universal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "universal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "universal:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/universal/tsconfig.app.json",
+              "apps/universal/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/universal/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/universal/jest.config.js",
+            "tsConfig": "apps/universal/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/universal/src/test-setup.ts"
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/apps/universal/server",
+            "main": "apps/universal/server.ts",
+            "tsConfig": "apps/universal/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/universal/src/environments/environment.ts",
+                  "with": "apps/universal/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "universal:build",
+            "serverTarget": "universal:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "universal:build:production",
+              "serverTarget": "universal:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "universal:build:production",
+            "serverTarget": "universal:server:production",
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {}
+          }
+        }
+      }
+    },
+    "universal-e2e": {
+      "root": "apps/universal-e2e",
+      "sourceRoot": "apps/universal-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/universal-e2e/cypress.json",
+            "tsConfig": "apps/universal-e2e/tsconfig.e2e.json",
+            "devServerTarget": "universal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "universal:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/universal-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/universal-e2e/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/schematics:component": {
+      "styleext": "scss"
+    }
+  },
+  "defaultProject": "universal"
+}

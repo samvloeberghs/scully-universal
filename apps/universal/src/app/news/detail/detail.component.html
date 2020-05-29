@@ -1,0 +1,9 @@
+<h2>News detail #{{newsId$ | async}}</h2>
+
+<h3>Intro</h3>
+<img src="https://via.placeholder.com/150" alt=""/>
+<p>{{(newsDetail$ | async)?.short}}</p>
+
+<h3>Full article</h3>
+<img src="https://via.placeholder.com/250" alt=""/>
+<div [innerHTML]="(newsDetail$ | async)?.full"></div>
