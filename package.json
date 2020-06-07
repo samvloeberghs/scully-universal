@@ -108,6 +108,7 @@
     "lint-staged": "^10.1.2",
     "local-web-server": "^4.0.0",
     "prettier": "^2.0.5",
+    "scully-plugin-disable-angular": "^4.0.1",
     "ts-jest": "^25.2.1",
     "ts-node": "^7.0.0",
     "tslint": "^6.0.0",

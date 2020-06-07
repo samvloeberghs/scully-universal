@@ -1,0 +1,11 @@
+:host {
+  display: block;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+ul {
+  column-count: 3;
+}

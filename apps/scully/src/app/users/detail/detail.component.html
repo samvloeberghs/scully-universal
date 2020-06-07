@@ -1,0 +1,14 @@
+<h3>{{(userDetail$ | async)?.name}} #{{userId$ | async}}</h3>
+
+<h4>Bio</h4>
+<div [innerHTML]="(userDetail$ | async)?.bio"></div>
+
+<h4>
+  Articles written:
+</h4>
+
+<ul>
+  <li *ngFor="let article of userArticles$ | async">
+    <a [routerLink]="['/', 'news', article]">News detail #{{article}}</a>
+  </li>
+</ul>

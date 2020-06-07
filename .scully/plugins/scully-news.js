@@ -14,7 +14,7 @@ const newsPlugin = async(route, config) => {
   return handledRoutes;
 };
 
-const newsPluginValidator =  async conf => [];
+const newsPluginValidator = async conf => [];
 
 registerPlugin('router', News, newsPlugin, newsPluginValidator);
 exports.News = News;
