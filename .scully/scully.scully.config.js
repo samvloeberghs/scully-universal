@@ -3,7 +3,6 @@ const { MinifyHtml } = require('scully-plugin-minify-html');
 const { DisableAngular } = require('scully-plugin-disable-angular');
 
 const { News } = require('./plugins/scully-news');
-const { Users } = require('./plugins/scully-users');
 
 setPluginConfig(DisableAngular, {
   // removeState: true
