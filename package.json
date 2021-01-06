@@ -66,7 +66,7 @@
     "@scullyio/init": "0.0.28",
     "@scullyio/ng-lib": "latest",
     "@scullyio/scully": "latest",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.11.1",
     "core-js": "^2.5.4",
